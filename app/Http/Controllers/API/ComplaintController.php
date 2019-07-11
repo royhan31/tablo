@@ -16,6 +16,13 @@ class ComplaintController extends Controller
     public function index(){
       $user = Auth::user()->id;
       $complaints = Complaint::where('user_id', $user)->orderBy('id','DESC')->get();
+      if ($complaints->isEmpty()) {
+        return response()->json([
+          'message' => 'Success',
+          'status' => true,
+          'data' => []
+        ], 200);
+      }
       foreach ($complaints as $complaint) {
         $result[] = [
           'id' => $complaint->id,
