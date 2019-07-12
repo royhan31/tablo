@@ -17,6 +17,11 @@ class CreateComplaintsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('message');
+            $table->string('input1')->nullable();
+            $table->string('input2')->nullable();
+            $table->string('input3')->nullable();
+            $table->string('input4')->nullable();
+            $table->string('input5')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
 
